@@ -4,33 +4,33 @@ import { Newspaper, Calendar, Clock, ArrowRight, X } from 'lucide-react';
 const newsArticles = [
   {
     id: 1,
-    title: "Community Youth Mental Wellness Forum Held in Kisii",
-    date: "September 10, 2026",
+    title: "Youth Environmental Conservation & Tree Planting Drive",
+    date: "March 16, 2025",
     readTime: "3 min read",
-    category: "Mental Health",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
-    summary: "Baraka CBO hosted over 150 local youths to discuss coping mechanisms, mental wellbeing, and combating stigma.",
-    content: "Over 150 young individuals gathered in Kisii for an interactive open-floor mental health sensitization drive. The session focused on addressing anxiety, depression, and stress management strategies. Professional counselors joined to offer free guidance and establish local peer support groups."
+    category: "Environment",
+    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645882/WhatsApp_Image_2026-09-16_at_18.37.32_ebfjpl.jpg",
+    summary: "Baraka CBO mobilized youth volunteers for an intensive environmental restoration drive and sustainable eco-awareness campaign.",
+    content: "To combat environmental degradation and build sustainable communities, Baraka CBO spearheaded a grassroots environmental drive in Kisii County. Youth volunteers gathered for tree planting, public area clean-ups, and interactive sessions on local climate action. The initiative empowered participants with practical eco-friendly habits to foster healthy living environments."
   },
   {
     id: 2,
-    title: "GBV Sensitization Drive Expands to Rural Sub-Counties",
-    date: "August 28, 2026",
+    title: "Substance Abuse Prevention & Youth Mental Wellness Forum",
+    date: "May 17, 2025",
     readTime: "4 min read",
-    category: "GBV Prevention",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800",
-    summary: "Reaching grassroots communities to promote safe environments and gender-based violence reporting channels.",
-    content: "Our advocacy teams engaged local community leaders and youth groups in interactive workshops focused on preventing gender-based violence, creating safe report structures, and supporting survivors with immediate care and counseling."
+    category: "Drug Abuse Prevention",
+    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-17_at_14.49.07_xl5vqs.jpg",
+    summary: "Engaging local students and youths in open discussions to counter drug dependencies and promote positive mental health.",
+    content: "Addressing the growing concern of substance abuse among students, Baraka CBO hosted a comprehensive sensitization forum focused on anti-addiction education and mental wellness. Community facilitators provided guidance on stress management, peer pressure resistance, and building healthy coping mechanisms to keep young people focused on personal and academic success."
   },
   {
     id: 3,
-    title: "Environmental Conservation Roadshow Plants 500 Trees",
-    date: "August 14, 2026",
-    readTime: "2 min read",
-    category: "Environment",
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=800",
-    summary: "Youth volunteers led a major clean-up drive and eco-friendly campaign across local public spaces.",
-    content: "In our ongoing efforts to combat environmental degradation, Baraka CBO mobilized 40+ youth volunteers for a weekend tree-planting drive and eco-awareness session, planting 500 indigenous seedlings."
+    title: "Grassroots Waste Management & Community Clean-up Campaign",
+    date: "March 16, 2025",
+    readTime: "3 min read",
+    category: "Community Health",
+    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-16_at_18.39.12_n2z7zx.jpg",
+    summary: "Promoting healthy living environments through structured community clean-ups and plastic waste disposal advocacy.",
+    content: "In alignment with our commitment to environmental sustainability, Baraka CBO organized a community-wide sanitation campaign. Volunteers cleared littered public areas, advocated for proper waste disposal, and educated local vendors on maintaining clean, hygienic environments to prevent disease outbreaks and boost social resilience."
   }
 ];
 

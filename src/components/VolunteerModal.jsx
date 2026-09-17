@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import { X, Send, HeartHandshake, CheckCircle } from 'lucide-react';
 
 export default function VolunteerModal({ isOpen, onClose }) {
-  const [submitted, setSubmitted] = useState(false);
+  const [state, handleSubmit] = useForm("xgavelnw");
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -12,12 +13,6 @@ export default function VolunteerModal({ isOpen, onClose }) {
   });
 
   if (!isOpen) return null;
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Integrated with Formspree endpoint / state
-    setSubmitted(true);
-  };
 
   return (
     <div className="fixed inset-0 z-50 bg-black/75 flex items-center justify-center p-4 backdrop-blur-sm">
@@ -31,7 +26,7 @@ export default function VolunteerModal({ isOpen, onClose }) {
           <X className="w-5 h-5" />
         </button>
 
-        {submitted ? (
+        {state.succeeded ? (
           <div className="text-center py-8 space-y-4">
             <CheckCircle className="w-16 h-16 text-[#007A78] mx-auto" />
             <h3 className="text-2xl font-bold text-gray-900">Application Received!</h3>
@@ -39,10 +34,7 @@ export default function VolunteerModal({ isOpen, onClose }) {
               Thank you for signing up to volunteer with Baraka CBO. Our outreach team will review your application and get back to you shortly.
             </p>
             <button
-              onClick={() => {
-                setSubmitted(false);
-                onClose();
-              }}
+              onClick={onClose}
               className="mt-4 bg-[#007A78] text-white px-6 py-2.5 rounded-xl font-semibold hover:bg-[#005f5d] transition"
             >
               Close
@@ -62,7 +54,7 @@ export default function VolunteerModal({ isOpen, onClose }) {
             </div>
 
             {/* Volunteer Form */}
-            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Full Name</label>
                 <input
@@ -88,6 +80,7 @@ export default function VolunteerModal({ isOpen, onClose }) {
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#007A78] focus:border-transparent outline-none text-sm"
                   />
+                  <ValidationError prefix="Email" field="email" errors={state.errors} />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Phone Number</label>
@@ -129,14 +122,16 @@ export default function VolunteerModal({ isOpen, onClose }) {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#007A78] focus:border-transparent outline-none text-sm"
                 ></textarea>
+                <ValidationError prefix="Message" field="message" errors={state.errors} />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-[#007A78] text-white py-3 rounded-xl font-bold flex items-center justify-center space-x-2 hover:bg-[#005f5d] transition shadow-md mt-2"
+                disabled={state.submitting}
+                className="w-full bg-[#007A78] text-white py-3 rounded-xl font-bold flex items-center justify-center space-x-2 hover:bg-[#005f5d] transition shadow-md mt-2 disabled:opacity-50"
               >
                 <Send className="w-4 h-4" />
-                <span>Submit Application</span>
+                <span>{state.submitting ? 'Submitting...' : 'Submit Application'}</span>
               </button>
             </form>
           </div>

@@ -81,12 +81,8 @@ export default function DonateModal({ isOpen, onClose }) {
               </span>
             </div>
 
-            <div className="bg-white p-4 rounded-xl border border-blue-100 space-y-2 text-sm">
+            <div className="bg-white p-4 rounded-xl border border-blue-100 text-sm">
               <div className="flex justify-between items-center">
-                <span className="text-gray-500">Reg No:</span>
-                <span className="font-mono font-bold text-gray-800">DSD/45/267/02/13875</span>
-              </div>
-              <div className="flex justify-between items-center pt-2 border-t border-gray-100">
                 <span className="text-gray-500">Location:</span>
                 <span className="font-semibold text-gray-800">Kisii County, Kenya</span>
               </div>

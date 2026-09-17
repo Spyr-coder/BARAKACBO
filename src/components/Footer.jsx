@@ -5,11 +5,25 @@ export default function Footer() {
   const [subscribed, setSubscribed] = useState(false);
   const [email, setEmail] = useState('');
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault();
     if (email) {
-      setSubscribed(true);
-      setEmail('');
+      try {
+        const response = await fetch("https://formspree.io/f/xgavelnw", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({ newsletter_email: email })
+        });
+        if (response.ok) {
+          setSubscribed(true);
+          setEmail('');
+        }
+      } catch (err) {
+        console.error("Subscription submission failed", err);
+      }
     }
   };
 
@@ -31,11 +45,8 @@ export default function Footer() {
               <span className="text-xl font-extrabold text-white tracking-wide">BARAKA CBO</span>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed">
-              Empowering youths and building stronger, healthier communities across Kisii County through unity, advocacy, and direct initiative.[cite: 1]
+              Empowering youths and building stronger, healthier communities across Kisii County through unity, advocacy, and direct initiative.
             </p>
-            <div className="pt-2 text-xs text-gray-500 font-mono">
-              Reg No: DSD/45/267/02/13875[cite: 1]
-            </div>
           </div>
 
           {/* Col 2: Quick Links */}
@@ -55,15 +66,15 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-[#007A78] shrink-0 mt-0.5" />
-                <span>P.O. BOX 271-40200, Kisii - Kenya</span>[cite: 1]
+                <span>P.O. BOX 271-40200, Kisii - Kenya</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-[#007A78] shrink-0" />
-                <a href="tel:+254702959855" className="hover:text-white transition">+254 702 959 855</a>[cite: 1]
+                <a href="tel:+254702959855" className="hover:text-white transition">+254 702 959 855</a>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-[#007A78] shrink-0" />
-                <a href="mailto:barakacommunity271@gmail.com" className="hover:text-white transition truncate">barakacommunity271@gmail.com</a>[cite: 1]
+                <a href="mailto:barakacommunity271@gmail.com" className="hover:text-white transition truncate">barakacommunity271@gmail.com</a>
               </li>
             </ul>
           </div>
@@ -81,7 +92,7 @@ export default function Footer() {
                 <span>Thanks for subscribing to Baraka CBO updates!</span>
               </div>
             ) : (
-              <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" onSubmit={handleSubscribe} className="space-y-2">
+              <form onSubmit={handleSubscribe} className="space-y-2">
                 <div className="relative">
                   <input
                     type="email"

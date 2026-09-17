@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Heart, ChevronRight, ChevronLeft, ShieldCheck } from 'lucide-react';
+import { Heart, ChevronRight, ChevronLeft, MapPin } from 'lucide-react';
 
 const heroImages = [
   {
-    url: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000",
-    caption: "Community Youth Mental Wellness Forum",
-    tag: "Mental Health"
+    url: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645882/WhatsApp_Image_2026-09-16_at_18.37.32_ebfjpl.jpg",
+    caption: "Climate & Environmental Clean-Up Drive",
+    tag: "Climate & Environment"
   },
   {
-    url: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1000",
-    caption: "Environmental Clean-up & Tree Planting Drive",
-    tag: "Conservation"
+    url: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-17_at_14.49.07_xl5vqs.jpg",
+    caption: "Drug Abuse Sensitization Workshop",
+    tag: "Drug Abuse Prevention"
   },
   {
-    url: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000",
-    caption: "Youth Leadership & Entrepreneurship Workshop",
-    tag: "Empowerment"
+    url: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-16_at_18.39.12_n2z7zx.jpg",
+    caption: "Community Clean-up & Youth Mobilization",
+    tag: "Community Action"
   }
 ];
 
@@ -40,8 +40,8 @@ export default function Hero({ onOpenDonate }) {
           {/* Left Text Column */}
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center space-x-2 bg-teal-100/80 border border-teal-200 text-[#007A78] px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide">
-              <ShieldCheck className="w-4 h-4 text-[#007A78]" />
-              <span>Reg No: DSD/45/267/02/13875 • Kisii, Kenya</span>
+              <MapPin className="w-4 h-4 text-[#007A78]" />
+              <span>Kisii, Kenya</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight tracking-tight">
@@ -50,7 +50,7 @@ export default function Hero({ onOpenDonate }) {
             </h1>
 
             <p className="text-lg text-gray-600 max-w-xl leading-relaxed">
-              Baraka CBO is dedicated to fostering personal growth, mental wellness, GBV prevention, and leadership development across grassroots youth networks.
+              Baraka CBO is dedicated to fostering community empowerment, environmental sustainability, educational outreach, and health advocacy across grassroots youth networks.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -87,7 +87,6 @@ export default function Hero({ onOpenDonate }) {
                     alt={img.caption}
                     className="w-full h-full object-cover"
                   />
-                  {/* Image Gradient Overlay & Caption */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
                     <span className="bg-[#007A78] text-white text-xs font-bold px-3 py-1 rounded-full w-fit mb-2">
                       {img.tag}
@@ -97,7 +96,6 @@ export default function Hero({ onOpenDonate }) {
                 </div>
               ))}
 
-              {/* Navigation Controls */}
               <button
                 onClick={prevSlide}
                 className="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-md transition"
@@ -111,7 +109,6 @@ export default function Hero({ onOpenDonate }) {
                 <ChevronRight className="w-5 h-5" />
               </button>
 
-              {/* Indicators */}
               <div className="absolute bottom-3 right-6 z-20 flex space-x-1.5">
                 {heroImages.map((_, idx) => (
                   <button
