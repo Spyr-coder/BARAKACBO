@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, Compass, Eye } from 'lucide-react';
+import { Compass, Eye } from 'lucide-react';
 
 export default function AboutUs() {
   return (
@@ -14,31 +14,27 @@ export default function AboutUs() {
           </p>
         </div>
 
-        {/* Vision, Mission & Mandate Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
+        {/* Vision & Mission Grid (Centrally Aligned) */}
+        <div className="grid md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
+          
+          {/* Vision Card */}
+          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center flex flex-col items-center justify-center">
             <Eye className="w-10 h-10 text-[#007A78] mx-auto mb-4" />
             <h3 className="text-xl font-bold text-gray-800 mb-2">Vision</h3>
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-600 text-sm leading-relaxed">
               To build a resilient, healthy, and self-sustaining community empowered by cutting-edge digital innovation and sustainable ecological practices.
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
+          {/* Mission Card */}
+          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center flex flex-col items-center justify-center">
             <Compass className="w-10 h-10 text-[#007A78] mx-auto mb-4" />
             <h3 className="text-xl font-bold text-gray-800 mb-2">Mission</h3>
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-600 text-sm leading-relaxed">
               To uplift community well-being across health, education, WASH, and climate ecosystems by deploying data-driven solutions, expanding access to knowledge, combating substance abuse, and pioneering smart waste and environmental management through the integration of artificial intelligence.
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
-            <Target className="w-10 h-10 text-[#007A78] mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-gray-800 mb-2">Mandate</h3>
-            <p className="text-gray-600 text-sm">
-              To empower the youth with problem-solving skills, fostering societal growth[cite: 1].
-            </p>
-          </div>
         </div>
 
         {/* 2027 to 2030 Strategic Plan */}
