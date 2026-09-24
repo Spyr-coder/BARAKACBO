@@ -11,10 +11,11 @@ export default function ContactForm() {
     setSubmitting(true);
     setError(null);
 
-    const formData = new FormData(e.target);
+    const formElement = e.target;
+    const formData = new FormData(formElement);
 
     try {
-      const response = await fetch('/', {
+      const response = await fetch('/__forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString(),
