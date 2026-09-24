@@ -15,7 +15,8 @@ export default function ContactForm() {
     const formData = new FormData(formElement);
 
     try {
-      const response = await fetch('/__forms.html', {
+      // POST directly to a static asset path to bypass SPA catch-all routes
+      const response = await fetch('/favicon.ico', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString(),
