@@ -7,7 +7,7 @@ const galleryItems = [
     id: 1,
     title: "Eco-Awareness & Community Tree Planting Drive",
     category: "Climate & Environmental Initiatives",
-    date: "March 14, 2025",
+    date: "April 25, 2025",
     image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645882/WhatsApp_Image_2026-09-16_at_18.37.32_ebfjpl.jpg",
     description: "Mobilizing youth volunteers for local reforestation, environmental cleanup, and sustainable eco-practices across Kisii."
   },
@@ -15,49 +15,42 @@ const galleryItems = [
     id: 2,
     title: "Grassroots Waste Management & Clean-up Campaign",
     category: "Climate & Environmental Initiatives",
-    date: "March 14, 2025",
-    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-16_at_18.39.12_n2z7zx.jpg",
+    date: "April 25, 2025",
+    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-16_at_18.42.36_krfexc.jpg",
     description: "Community cleanup drive focused on plastic waste reduction and promoting clean, healthy living environments."
   },
   {
-    id: 3,
-    title: "Youth Climate Resilience Workshop",
+    id: 2,
+    title: "Grassroots Waste Management & Clean-up Campaign",
     category: "Climate & Environmental Initiatives",
-    date: "March 14, 2025",
-    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-16_at_18.42.36_krfexc.jpg",
-    description: "Interactive session educating local youth on environmental conservation, climate advocacy, and practical solutions."
+    date: "April 25, 2025",
+    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-16_at_18.42.57_pjwjar.jpg",
+    description: "Community cleanup drive focused on plastic waste reduction and promoting clean, healthy living environments."
   },
   {
     id: 4,
     title: "Environmental Roadshow & Conservation Outreach",
     category: "Climate & Environmental Initiatives",
-    date: "March 14, 2025",
-    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-16_at_18.42.57_pjwjar.jpg",
-    description: "Outreach campaign sensitizing community members on ecological responsibility and sustainable resource management."
+    date: "April 25, 2025",
+    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-16_at_18.39.12_n2z7zx.jpg",
+    description: "Community cleanup drive focused on plastic waste reduction and promoting clean, healthy living environments."
   },
+
 
   // Drug Abuse Sensitization (3 Images)
   {
     id: 5,
     title: "Youth Substance Abuse Prevention Forum",
     category: "Drug Abuse Sensitization",
-    date: "May 14, 2025",
+    date: "June 26, 2025",
     image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-17_at_14.49.07_xl5vqs.jpg",
     description: "Empowering young people with knowledge on countering drug abuse and developing healthy coping strategies for stress."
-  },
-  {
-    id: 6,
-    title: "School & Institution Anti-Drug Outreach",
-    category: "Drug Abuse Sensitization",
-    date: "May 14, 2025",
-    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-17_at_14.49.06_1_tmrtze.jpg",
-    description: "Sensitization campaign held in local institutions to guide students away from substance dependencies."
   },
   {
     id: 7,
     title: "Community Peer Support & Anti-Addiction Drive",
     category: "Drug Abuse Sensitization",
-    date: "May 14, 2025",
+    date: "June 26, 2025",
     image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-17_at_14.49.06_wy4qya.jpg",
     description: "Mobilizing youth groups to create peer support networks and combat drug addiction through open dialogues."
   }

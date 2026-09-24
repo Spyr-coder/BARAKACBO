@@ -5,7 +5,7 @@ const newsArticles = [
   {
     id: 1,
     title: "Youth Environmental Conservation & Tree Planting Drive",
-    date: "March 16, 2025",
+    date: "April 26, 2025",
     readTime: "3 min read",
     category: "Environment",
     image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645882/WhatsApp_Image_2026-09-16_at_18.37.32_ebfjpl.jpg",
@@ -15,7 +15,7 @@ const newsArticles = [
   {
     id: 2,
     title: "Substance Abuse Prevention & Youth Mental Wellness Forum",
-    date: "May 17, 2025",
+    date: "June 27, 2025",
     readTime: "4 min read",
     category: "Drug Abuse Prevention",
     image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-17_at_14.49.07_xl5vqs.jpg",
@@ -25,10 +25,10 @@ const newsArticles = [
   {
     id: 3,
     title: "Grassroots Waste Management & Community Clean-up Campaign",
-    date: "March 16, 2025",
+    date: "April 26, 2025",
     readTime: "3 min read",
     category: "Community Health",
-    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-16_at_18.39.12_n2z7zx.jpg",
+    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-16_at_18.42.57_pjwjar.jpg",
     summary: "Promoting healthy living environments through structured community clean-ups and plastic waste disposal advocacy.",
     content: "In alignment with our commitment to environmental sustainability, Baraka CBO organized a community-wide sanitation campaign. Volunteers cleared littered public areas, advocated for proper waste disposal, and educated local vendors on maintaining clean, hygienic environments to prevent disease outbreaks and boost social resilience."
   }
