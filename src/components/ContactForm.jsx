@@ -1,36 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export default function ContactForm() {
+  const formRef = useRef();
   const [submitting, setSubmitting] = useState(false);
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitting(true);
     setError(null);
 
-    const formElement = e.target;
-    const formData = new FormData(formElement);
+    const SERVICE_ID = 'service_os8cywe';
+    const TEMPLATE_ID = 'template_p55f0cw';
+    const PUBLIC_KEY = 'iokxYpJygV6UDun6N';
 
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString(),
-      });
-
-      if (response.ok) {
-        setSucceeded(true);
-      } else {
-        setError('Something went wrong. Please try again.');
-      }
-    } catch (err) {
-      setError('Network error. Please try again.');
-    } finally {
-      setSubmitting(false);
-    }
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+      .then(
+        () => {
+          setSucceeded(true);
+          setSubmitting(false);
+        },
+        (err) => {
+          console.error('EmailJS Error:', err);
+          setError('Failed to send message. Please try again.');
+          setSubmitting(false);
+        }
+      );
   };
 
   return (
@@ -81,22 +80,7 @@ export default function ContactForm() {
                 <p className="text-gray-600">Thank you for contacting Baraka CBO. We will respond shortly.</p>
               </div>
             ) : (
-              <form 
-                name="contact" 
-                method="POST" 
-                data-netlify="true" 
-                netlify-honeypot="bot-field"
-                onSubmit={handleSubmit} 
-                className="space-y-4"
-              >
-                {/* Hidden inputs required by Netlify Forms */}
-                <input type="hidden" name="form-name" value="contact" />
-                <p className="hidden">
-                  <label>
-                    Don’t fill this out if you’re human: <input name="bot-field" />
-                  </label>
-                </p>
-
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                 {error && (
                   <div className="p-3 bg-red-100 text-red-700 text-sm rounded-lg">
                     {error}
@@ -107,7 +91,7 @@ export default function ContactForm() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
                   <input 
                     type="text" 
-                    name="name" 
+                    name="from_name" 
                     required 
                     className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#007A78] focus:border-transparent outline-none bg-white" 
                   />
@@ -117,7 +101,7 @@ export default function ContactForm() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
                   <input 
                     type="email" 
-                    name="email" 
+                    name="from_email" 
                     required 
                     className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#007A78] focus:border-transparent outline-none bg-white" 
                   />

@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { X, Send, HeartHandshake, CheckCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export default function VolunteerModal({ isOpen, onClose }) {
+  const formRef = useRef();
   const [submitting, setSubmitting] = useState(false);
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
@@ -16,31 +18,28 @@ export default function VolunteerModal({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitting(true);
     setError(null);
 
-    const formElement = e.target;
-    const bodyData = new FormData(formElement);
+    const SERVICE_ID = 'service_os8cywe';
+    const TEMPLATE_ID = 'template_p55f0cw';
+    const PUBLIC_KEY = 'iokxYpJygV6UDun6N';
 
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(bodyData).toString(),
-      });
-
-      if (response.ok) {
-        setSucceeded(true);
-      } else {
-        setError('Something went wrong. Please try again.');
-      }
-    } catch (err) {
-      setError('Network error. Please try again.');
-    } finally {
-      setSubmitting(false);
-    }
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+      .then(
+        () => {
+          setSucceeded(true);
+          setSubmitting(false);
+        },
+        (err) => {
+          console.error('EmailJS Error:', err);
+          setError('Failed to send application. Please try again.');
+          setSubmitting(false);
+        }
+      );
   };
 
   return (
@@ -83,22 +82,7 @@ export default function VolunteerModal({ isOpen, onClose }) {
             </div>
 
             {/* Volunteer Form */}
-            <form 
-              name="volunteer" 
-              method="POST" 
-              data-netlify="true" 
-              netlify-honeypot="bot-field"
-              onSubmit={handleSubmit} 
-              className="space-y-4"
-            >
-              {/* Hidden inputs required by Netlify Forms */}
-              <input type="hidden" name="form-name" value="volunteer" />
-              <p className="hidden">
-                <label>
-                  Don’t fill this out if you’re human: <input name="bot-field" />
-                </label>
-              </p>
-
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
               {error && (
                 <div className="p-3 bg-red-100 text-red-700 text-sm rounded-lg">
                   {error}
@@ -109,7 +93,7 @@ export default function VolunteerModal({ isOpen, onClose }) {
                 <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Full Name</label>
                 <input
                   type="text"
-                  name="fullName"
+                  name="from_name"
                   required
                   placeholder="e.g. Jane Doe"
                   value={formData.fullName}
@@ -123,7 +107,7 @@ export default function VolunteerModal({ isOpen, onClose }) {
                   <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Email Address</label>
                   <input
                     type="email"
-                    name="email"
+                    name="from_email"
                     required
                     placeholder="jane@example.com"
                     value={formData.email}
@@ -148,7 +132,7 @@ export default function VolunteerModal({ isOpen, onClose }) {
               <div>
                 <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Preferred Focus Area</label>
                 <select
-                  name="focusArea"
+                  name="focus_area"
                   value={formData.focusArea}
                   onChange={(e) => setFormData({ ...formData, focusArea: e.target.value })}
                   className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#007A78] focus:border-transparent outline-none text-sm bg-white"
