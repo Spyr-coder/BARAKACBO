@@ -15,6 +15,12 @@ const teamMembers = [
     image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1790089710/WhatsApp_Image_2026-09-19_at_21.00.53_ivxkoi.jpg",
   },
   {
+    name: "Dr. Fidel Castro",
+    role: "Head of Education Department",
+    bio: "Leads skills training, educational mentorship, and youth capacity-building programs.",
+    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1790265441/WhatsApp_Image_2026-09-22_at_19.21.57_mhb9s4.jpg",
+  },
+  {
     name: "Jack Were",
     role: "Chief Financial Officer",
     bio: "Manages financial planning, resource allocation, and accountability for all organization funds.",
@@ -52,8 +58,8 @@ const teamMembers = [
   },
   {
     name: "Braxtone Omondi",
-    role: "Head of Education Department",
-    bio: "Leads skills training, educational mentorship, and youth capacity-building programs.",
+    role: "Head of Grants/Resource Mobilization Department",
+    bio: "Leads fundraising strategies, donor engagement, and proposal development to secure sustainable funding.",
     image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1790090750/WhatsApp_Image_2026-09-22_at_18.24.28_1_amu7jk.jpg",
   },
   {
