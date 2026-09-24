@@ -25,8 +25,7 @@ export default function VolunteerModal({ isOpen, onClose }) {
     const bodyData = new FormData(formElement);
 
     try {
-      // POST directly to a guaranteed static asset path to bypass React Router SPA rewrites
-      const response = await fetch('/favicon.ico', {
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(bodyData).toString(),
