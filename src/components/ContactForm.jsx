@@ -1,9 +1,36 @@
-import React from 'react';
-import { useForm, ValidationError } from '@formspree/react';
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function ContactForm() {
-  const [state, handleSubmit] = useForm("xgavelnw");
+  const [submitting, setSubmitting] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError(null);
+
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      if (response.ok) {
+        setSucceeded(true);
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setError('Network error. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact" className="py-20 bg-white">
@@ -47,29 +74,70 @@ export default function ContactForm() {
           </div>
 
           <div className="bg-[#F0F9F8] p-8 rounded-2xl border border-teal-100">
-            {state.succeeded ? (
+            {succeeded ? (
               <div className="text-center py-12">
                 <h3 className="text-2xl font-bold text-[#007A78] mb-2">Message Sent!</h3>
                 <p className="text-gray-600">Thank you for contacting Baraka CBO. We will respond shortly.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form 
+                name="contact" 
+                method="POST" 
+                data-netlify="true" 
+                netlify-honeypot="bot-field"
+                onSubmit={handleSubmit} 
+                className="space-y-4"
+              >
+                {/* Hidden inputs required by Netlify Forms */}
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>
+                    Don’t fill this out if you’re human: <input name="bot-field" />
+                  </label>
+                </p>
+
+                {error && (
+                  <div className="p-3 bg-red-100 text-red-700 text-sm rounded-lg">
+                    {error}
+                  </div>
+                )}
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                  <input type="text" name="name" required className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#007A78] focus:border-transparent outline-none bg-white" />
+                  <input 
+                    type="text" 
+                    name="name" 
+                    required 
+                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#007A78] focus:border-transparent outline-none bg-white" 
+                  />
                 </div>
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                  <input type="email" name="email" required className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#007A78] focus:border-transparent outline-none bg-white" />
-                  <ValidationError prefix="Email" field="email" errors={state.errors} />
+                  <input 
+                    type="email" 
+                    name="email" 
+                    required 
+                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#007A78] focus:border-transparent outline-none bg-white" 
+                  />
                 </div>
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                  <textarea name="message" rows="4" required className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#007A78] focus:border-transparent outline-none bg-white"></textarea>
-                  <ValidationError prefix="Message" field="message" errors={state.errors} />
+                  <textarea 
+                    name="message" 
+                    rows="4" 
+                    required 
+                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#007A78] focus:border-transparent outline-none bg-white"
+                  ></textarea>
                 </div>
-                <button type="submit" disabled={state.submitting} className="w-full bg-[#007A78] text-white py-3 rounded-lg font-semibold hover:bg-[#005f5d] transition">
-                  {state.submitting ? 'Sending...' : 'Send Message'}
+
+                <button 
+                  type="submit" 
+                  disabled={submitting} 
+                  className="w-full bg-[#007A78] text-white py-3 rounded-lg font-semibold hover:bg-[#005f5d] transition disabled:opacity-50"
+                >
+                  {submitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             )}

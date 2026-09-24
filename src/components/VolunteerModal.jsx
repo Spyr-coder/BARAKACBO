@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useForm, ValidationError } from '@formspree/react';
 import { X, Send, HeartHandshake, CheckCircle } from 'lucide-react';
 
 export default function VolunteerModal({ isOpen, onClose }) {
-  const [state, handleSubmit] = useForm("xgavelnw");
+  const [submitting, setSubmitting] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
+  const [error, setError] = useState(null);
+
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -13,6 +15,32 @@ export default function VolunteerModal({ isOpen, onClose }) {
   });
 
   if (!isOpen) return null;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError(null);
+
+    const bodyData = new FormData(e.target);
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(bodyData).toString(),
+      });
+
+      if (response.ok) {
+        setSucceeded(true);
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setError('Network error. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-50 bg-black/75 flex items-center justify-center p-4 backdrop-blur-sm">
@@ -26,7 +54,7 @@ export default function VolunteerModal({ isOpen, onClose }) {
           <X className="w-5 h-5" />
         </button>
 
-        {state.succeeded ? (
+        {succeeded ? (
           <div className="text-center py-8 space-y-4">
             <CheckCircle className="w-16 h-16 text-[#007A78] mx-auto" />
             <h3 className="text-2xl font-bold text-gray-900">Application Received!</h3>
@@ -54,7 +82,28 @@ export default function VolunteerModal({ isOpen, onClose }) {
             </div>
 
             {/* Volunteer Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form 
+              name="volunteer" 
+              method="POST" 
+              data-netlify="true" 
+              netlify-honeypot="bot-field"
+              onSubmit={handleSubmit} 
+              className="space-y-4"
+            >
+              {/* Hidden inputs required by Netlify Forms */}
+              <input type="hidden" name="form-name" value="volunteer" />
+              <p className="hidden">
+                <label>
+                  Don’t fill this out if you’re human: <input name="bot-field" />
+                </label>
+              </p>
+
+              {error && (
+                <div className="p-3 bg-red-100 text-red-700 text-sm rounded-lg">
+                  {error}
+                </div>
+              )}
+
               <div>
                 <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Full Name</label>
                 <input
@@ -80,7 +129,6 @@ export default function VolunteerModal({ isOpen, onClose }) {
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#007A78] focus:border-transparent outline-none text-sm"
                   />
-                  <ValidationError prefix="Email" field="email" errors={state.errors} />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Phone Number</label>
@@ -122,16 +170,15 @@ export default function VolunteerModal({ isOpen, onClose }) {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#007A78] focus:border-transparent outline-none text-sm"
                 ></textarea>
-                <ValidationError prefix="Message" field="message" errors={state.errors} />
               </div>
 
               <button
                 type="submit"
-                disabled={state.submitting}
+                disabled={submitting}
                 className="w-full bg-[#007A78] text-white py-3 rounded-xl font-bold flex items-center justify-center space-x-2 hover:bg-[#005f5d] transition shadow-md mt-2 disabled:opacity-50"
               >
                 <Send className="w-4 h-4" />
-                <span>{state.submitting ? 'Submitting...' : 'Submit Application'}</span>
+                <span>{submitting ? 'Submitting...' : 'Submit Application'}</span>
               </button>
             </form>
           </div>
