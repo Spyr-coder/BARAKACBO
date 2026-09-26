@@ -42,7 +42,7 @@ export default function DonateModal({ isOpen, onClose }) {
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center space-x-2">
                 <Smartphone className="w-5 h-5 text-green-700" />
-                <span className="font-bold text-gray-900">M-Pesa Direct</span>
+                <span className="font-bold text-gray-900">National Bank Direct</span>
               </div>
               <span className="text-xs font-semibold bg-green-100 text-green-800 px-2.5 py-1 rounded-full">
                 Mobile Transfer
