@@ -51,14 +51,14 @@ export default function DonateModal({ isOpen, onClose }) {
             
             <div className="bg-white p-4 rounded-xl border border-green-100 space-y-2 text-sm">
               <div className="flex justify-between items-center">
-                <span className="text-gray-500">Phone Number:</span>
+                <span className="text-gray-500">BARAKA CBO ACCOUNT NUMBER:</span>
                 <div className="flex items-center space-x-2">
-                  <span className="font-mono font-bold text-gray-800">+254 702 959 855</span>
+                  <span className="font-mono font-bold text-gray-800">7716818538</span>
                   <button 
-                    onClick={() => handleCopy('+254702959855', 'phone')}
+                    onClick={() => handleCopy('7716818538', 'account')}
                     className="text-gray-400 hover:text-[#007A78]"
                   >
-                    {copied === 'phone' ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
+                    {copied === 'account' ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
                   </button>
                 </div>
               </div>
