@@ -16,7 +16,7 @@ const teamMembers = [
   },
   {
     name: "Melord Mokeira Ondieki",
-    role: "DeputyExecutive Director",
+    role: "Deputy Executive Director",
     bio: "Drives strategic vision, operations, and executive leadership across all CBO initiatives in partnership with the Executive Director.",
     image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1793537769/mokeira_1_qumt9j.jpg",
   },
