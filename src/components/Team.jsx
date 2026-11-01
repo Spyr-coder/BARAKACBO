@@ -15,6 +15,12 @@ const teamMembers = [
     image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1790089710/WhatsApp_Image_2026-09-19_at_21.00.53_ivxkoi.jpg",
   },
   {
+    name: "Melord Mokeira Ondieki",
+    role: "DeputyExecutive Director",
+    bio: "Drives strategic vision, operations, and executive leadership across all CBO initiatives in partnership with the Executive Director.",
+    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1793537063/melord_Mokeira_dill9t.jpg",
+  },
+  {
     name: "Dr. Fidel Castro",
     role: "Head of Education Department",
     bio: "Leads skills training, educational mentorship, and youth capacity-building programs.",
@@ -58,8 +64,8 @@ const teamMembers = [
   },
   {
     name: "Braxtone Omondi",
-    role: "Head of Grants/Resource Mobilization Department",
-    bio: "Leads fundraising strategies, donor engagement, and proposal development to secure sustainable funding.",
+    role: "Head of Advocacy and Communications Department",
+    bio: "Leads the organization's public messaging, media relations, and policy-influencing campaigns to shape public opinion and drive systemic or institutional change.",
     image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1790090750/WhatsApp_Image_2026-09-22_at_18.24.28_1_amu7jk.jpg",
   },
   {
