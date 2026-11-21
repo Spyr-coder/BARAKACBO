@@ -53,6 +53,30 @@ const galleryItems = [
     date: "June 26, 2025",
     image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-17_at_14.49.06_wy4qya.jpg",
     description: "Mobilizing youth groups to create peer support networks and combat drug addiction through open dialogues."
+  },
+  {
+    id: 8,
+    title: "Environmental Action & Anti-Addiction Drive",
+    category: "Drug Abuse Sensitization",
+    date: "November 12, 2026",
+    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1795244523/WhatsApp_Image_2026-11-21_at_09.54.57_cmtt3p.jpg",
+    description: "Collaborating with local youth groups to raise awareness on drug abuse prevention and promote environmental stewardship."
+  },
+  {
+    id: 9,
+    title: "Environmental Action & Anti-Addiction Drive",
+    category: "Drug Abuse Sensitization",
+    date: "November 12, 2026",
+    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1795244523/WhatsApp_Image_2026-11-21_at_09.54.56_s3dyhx.jpg",
+    description: "Collaborating with local youth groups to raise awareness on drug abuse prevention and promote environmental stewardship."
+  },
+  {
+    id: 10,
+    title: "Environmental Action & Anti-Addiction Drive",
+    category: "Drug Abuse Sensitization",
+    date: "November 12, 2026",
+    image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1795244523/WhatsApp_Image_2026-11-21_at_09.54.57_1_tphxzr.jpg",
+    description: "Collaborating with local youth groups to raise awareness on drug abuse prevention and promote environmental stewardship."
   }
 ];
 

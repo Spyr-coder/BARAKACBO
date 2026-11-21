@@ -16,6 +16,13 @@ const heroImages = [
     url: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1789645881/WhatsApp_Image_2026-09-16_at_18.39.12_n2z7zx.jpg",
     caption: "Community Clean-up & Youth Mobilization",
     tag: "Community Action"
+  },
+  {
+    url: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1795244523/WhatsApp_Image_2026-11-21_at_09.54.56_s3dyhx.jpg",
+    url: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1795244523/WhatsApp_Image_2026-11-21_at_09.54.57_1_tphxzr.jpg",
+    url: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1795244523/WhatsApp_Image_2026-11-21_at_09.54.57_cmtt3p.jpg",
+        caption: "Tree planting and Drug Abuse Awareness Campaign Together With Alcohol Anonymous Kisii Group at Cathedral",
+    tag: "Community Action"
   }
 ];
 

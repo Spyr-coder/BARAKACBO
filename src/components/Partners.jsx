@@ -20,6 +20,16 @@ const partners = [
     name: "Kisii University",
     type: "Academic Institution",
     logo: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1790089711/WhatsApp_Image_2026-09-20_at_08.15.31_gfcnsv.jpg"
+  },
+  {
+    name: "Masabo Biogass Project",
+    type: "Corporate Partner",
+    logo: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1795244993/WhatsApp_Image_2026-11-21_at_10.01.20-removebg-preview_chlfi8.png"
+  },
+  {
+    name: "Environmental Homage Foundation",
+    type: "Youth Action & Environmental Partner",
+    logo: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1795244953/WhatsApp_Image_2026-11-21_at_10.01.29-removebg-preview_hwsifk.png"
   }
 ];
 
