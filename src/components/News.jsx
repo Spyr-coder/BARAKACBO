@@ -40,7 +40,7 @@ const newsArticles = [
     category: "Drug Abuse Prevention & Community Action",
     image: "https://res.cloudinary.com/dk1xirz7b/image/upload/v1795244523/WhatsApp_Image_2026-11-21_at_09.54.56_s3dyhx.jpg",
     summary: "Collaborating with local youth groups to raise awareness on drug abuse prevention and promote environmental stewardship.",
-    content: "On November 12, 2026, Baraka CBO joined the Alcoholics Anonymous group at Cathedral, Mwembe, for a day of prayers and tree planting. Representing Baraka CBO alongside Fidel Castro, our team took part in planting seedlings and strengthening community bonds around environmental stewardship and mutual support. Following the session, representatives highlighted the positive spirit of the gathering and recommended deeper collaboration on future activities as we continue working together for climate resilience and community wellbeing #BarakaCBO #ClimateChange #ServingCommunities."
+    content: "On November 12, 2026, Baraka CBO joined the Alcoholics Anonymous group at Cathedral, Mwembe, for a day of prayers and tree planting. Baraka CBO took part in planting seedlings and strengthening community bonds around environmental stewardship and mutual support. Following the session, representatives highlighted the positive spirit of the gathering and recommended deeper collaboration on future activities as we continue working together for climate resilience and community wellbeing #BarakaCBO #ClimateChange #ServingCommunities."
   }
 ];
 
